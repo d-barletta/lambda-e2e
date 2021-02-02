@@ -1,0 +1,80 @@
+{
+    "testName": "Test login for db realm",
+    "setDefaultTimeout": 10000,
+    "setViewport": {
+        "width": 1280,
+        "height": 800
+    },
+    "goto": "https://db.forwork.com/medwork/",
+    "actions": [
+        {
+            "execute": "waitForSelector",
+            "params": [
+                "[name=username]",
+                {
+                    "visible": true
+                }
+            ]
+        },
+        {
+            "execute": "click",
+            "params": [
+                "[name=username]"
+            ]
+        },
+        {
+            "execute": "type",
+            "params": [
+                "[name=username]",
+                "username@nsi.it"
+            ]
+        },
+        {
+            "execute": "waitForSelector",
+            "params": [
+                "[name=password]",
+                {
+                    "visible": true
+                }
+            ]
+        },
+        {
+            "execute": "click",
+            "params": [
+                "[name=password]"
+            ]
+        },
+        {
+            "execute": "type",
+            "params": [
+                "[name=password]",
+                "Password123!"
+            ]
+        },
+        {
+            "execute": "waitForSelector",
+            "params": [
+                "[text=Accedi]",
+                {
+                    "visible": true
+                }
+            ]
+        },
+        {
+            "execute": "click",
+            "params": [
+                "[text=Accedi]"
+            ]
+        },
+        {
+            "description": "Se è visibile questo elemento significa che la login è riuscita",
+            "execute": "waitForSelector",
+            "params": [
+                ".introduction",
+                {
+                    "visible": true
+                }
+            ]
+        }
+    ]
+}
