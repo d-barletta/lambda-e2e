@@ -1,0 +1,19 @@
+{
+  "name": "lambda_e2e_test",
+  "version": "1.0.0",
+  "description": "Selenium Chrome based Lambda function for e2e testing",
+  "main": "index.js",
+  "scripts": {
+    "start": "node local.js",
+    "build-lambda": "zip -9 -r -X deploy/lambdaFunc.zip . -x 'node_modules/puppeteer/*' 'local.js'"
+  },
+  "author": "barlettad",
+  "license": "ISC",
+  "dependencies": {
+    "chrome-aws-lambda": "^5.5.0",
+    "puppeteer-core": "^6.0.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^6.0.0"
+  }
+}
