@@ -14,5 +14,5 @@
 - Increase Lambda timeout to 5 min
 
 **Info**
-
-https://github.com/alixaxel/chrome-aws-lambda
+- https://github.com/alixaxel/chrome-aws-lambda
+- https://github.com/puppeteer/puppeteer/blob/main/docs/api.md
