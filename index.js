@@ -3,7 +3,6 @@ const chromium = require('chrome-aws-lambda');
 const lambdaFunction = async (event, context, callback) => {
   let result = null;
   let browser = null;
- 
   try {
     browser = await chromium.puppeteer.launch({
       args: chromium.args,
@@ -12,20 +11,18 @@ const lambdaFunction = async (event, context, callback) => {
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
- 
+    ////////////////////////////////////////////////////////////// TEST - BEGIN
+    
     let page = await browser.newPage();
- 
     await page.goto(event.url);
- 
     result = await page.title();
+
+    ////////////////////////////////////////////////////////////// TEST - FINISH
   } catch (error) {
     return callback(error);
   } finally {
-    if (browser !== null) {
-      await browser.close();
-    }
+    browser && await browser.close();
   }
- 
   return callback(null, result);
 };
 

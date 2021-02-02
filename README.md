@@ -12,3 +12,7 @@
 - Upload created .zip file to Amazon Lambda Function
 - Increase Lambda memory to min 1024m 
 - Increase Lambda timeout to 5 min
+
+**Info**
+
+https://github.com/alixaxel/chrome-aws-lambda
