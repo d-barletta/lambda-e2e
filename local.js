@@ -3,7 +3,7 @@ const fs = require('fs');
 const TESTS_DIR = './tests';
 
 fs.readdir(TESTS_DIR, (err, list) => {
-  const jsonFiles = list.filter(name => name.includes('.json'));
+  const jsonFiles = list.filter(name => name.includes('.json') && !name.includes('disabled'));
   for (const filename of jsonFiles) {
     fs.readFile(`${TESTS_DIR}/${filename}`, (err, data) => {
       handler(data.toString(), {}, (error, result) => {
