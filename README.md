@@ -27,7 +27,7 @@
   - `"executeOnPrevious": true` optional - if true call func on result of previous action instead of on page
   - `"description": "Example of description"` optional - document you action if you want
 
-A login example is `example.json` in root folder
+A login example is `example.json` in `tests` folder
 ***
 **Info**
 - https://github.com/alixaxel/chrome-aws-lambda
