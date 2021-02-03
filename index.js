@@ -11,7 +11,7 @@ const lambdaFunction = async (event, context, callback) => {
       event = JSON.parse(event);
     }
 
-    result.body.testName = event.testName || 'Test senza nome';
+    result.body.testName = event.testName || 'No named Test';
 
     browser = await chromium.puppeteer.launch({
       args: chromium.args,
@@ -32,8 +32,10 @@ const lambdaFunction = async (event, context, callback) => {
     for (const action of event.actions) {
       //console.log(action);
       let executeOn = action.executeOnPrevious ? lastResult : page;
-      if (action.execute && action.params) {
+      if (action.execute) {
+        if (!action.params) action.params = [];
         lastResult = await executeOn[action.execute](...action.params);
+        //console.log(lastResult);
       }
     }
 
