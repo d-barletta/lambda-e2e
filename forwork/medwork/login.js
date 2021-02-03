@@ -6,8 +6,8 @@ exports.default = {
   testName: 'Login and check is logged correctly',
   actions: [
     ...navigate('/medwork/#'),
-    ...type('[name=username]', 'd.barletta@nsi.it'),
-    ...type('[name=password]', 'Medwork123!'),
+    ...type('[name=username]', '***@nsi.it'),
+    ...type('[name=password]', '***'),
     ...click("//fws-button[contains(., 'Accedi')]"),
     ...exists('.introduction'),
   ],
