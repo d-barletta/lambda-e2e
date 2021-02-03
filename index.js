@@ -6,15 +6,26 @@ const lambdaFunction = async (event, context, callback) => {
     body: {},
   };
   let browser = null;
+
   try {
     if (typeof event === 'string') {
       event = JSON.parse(event);
     }
 
+    if (!event.setViewport) {
+      event.setViewport = {width: 1280, height: 800};
+    }
+
     result.body.testName = event.testName || 'No named Test';
 
+    let args = chromium.args;
+    if (!chromium.headless) {
+      //add 130 for info bar that is displayed on non headless chromium - local
+      args.push(`--window-size=${event.setViewport.width},${event.setViewport.height + 130}`);
+    }
+
     browser = await chromium.puppeteer.launch({
-      args: chromium.args,
+      args: args,
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath,
       headless: chromium.headless,
@@ -25,7 +36,7 @@ const lambdaFunction = async (event, context, callback) => {
 
     let page = await browser.newPage();
     await page.setDefaultTimeout(event.setDefaultTimeout || 30 * 1000);
-    await page.setViewport(event.setViewport || {width: 1280, height: 800});
+    await page.setViewport(event.setViewport);
     await page.goto(event.goto);
 
     let lastResult = null;

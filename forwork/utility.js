@@ -66,7 +66,7 @@ const wait = (exports.wait = seconds => {
   ];
 });
 
-const navigate = (exports.navigate = path => {
+const visit = (exports.visit = path => {
   if (!path) {
     throw Error('Url path is needed');
   }

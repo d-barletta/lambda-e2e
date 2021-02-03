@@ -1,4 +1,4 @@
-const {click, type, select, exists, wait, navigate} = require('../utility');
+const {click, type, select, exists, visit} = require('../utility');
 const login = require('./login').default;
 
 exports.default = {
@@ -7,8 +7,8 @@ exports.default = {
   actions: [
     ...login.actions,
     ...click("//fws-sidenav-item[contains(., 'Operatori sanitari')]"),
-    //...wait(0.3),
-    ...navigate('/medwork/#/operatori-sanitari/nuovo/generali'),
+    //insert operatore sanitario Barletta
+    ...visit('/medwork/#/operatori-sanitari/nuovo/generali'),
     ...type('[name=last_name]', 'Barletta'),
     ...type('[name=first_name]', 'Davide'),
     ...select('[name=gender]', 'Maschio'),
@@ -18,5 +18,11 @@ exports.default = {
     ...select('[name=medico_type]', 'Medico competente'),
     ...click("//fws-button[contains(., 'Salva')]"),
     ...exists("//fws-interactive-feedback[contains(., 'Davide Barletta')]"),
+    //delete operatore sanitario Barletta
+    ...visit('/medwork/#/operatori-sanitari'),
+    ...click("//table-row[contains(., 'Barletta')]//fws-checkbox"),
+    ...click("//a[contains(., 'Elimina')]"),
+    ...click("//fws-confirm-dialog//fws-button[contains(., 'Elimina')]"),
+    ...exists("//fws-simple-feedback[contains(., 'eliminato')]"),
   ],
 };
