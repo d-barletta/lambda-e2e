@@ -1,3 +1,5 @@
+const general = require('./general').default;
+
 const getSelectorType = selector => (selector.startsWith('//') ? 'waitForXPath' : 'waitForSelector');
 const getOptions = options => (options ? options : {visible: true});
 

@@ -7,8 +7,8 @@ exports.default = {
   actions: [
     ...login.actions,
     ...click("//fws-sidenav-item[contains(., 'Operatori sanitari')]"),
-    ...wait(0.3),
-    ...navigate("/medwork/#/operatori-sanitari/nuovo/generali"),
+    //...wait(0.3),
+    ...navigate('/medwork/#/operatori-sanitari/nuovo/generali'),
     ...type('[name=last_name]', 'Barletta'),
     ...type('[name=first_name]', 'Davide'),
     ...select('[name=gender]', 'Maschio'),
