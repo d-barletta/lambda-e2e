@@ -3,6 +3,9 @@ const {handler} = require('../index');
 const testCases = [
   require('./medwork/login').default,
   require('./medwork/operatore-sanitario').default,
+  require('./medwork/azienda').default,
+  require('./medwork/lavoratore').default,
+  require('./medwork/ambulatorio').default,
 ];
 
 for (const testCase of testCases) {
