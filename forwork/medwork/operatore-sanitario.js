@@ -3,7 +3,7 @@ const login = require('./login').default;
 
 exports.default = {
   ...login,
-  testName: 'Login and insert new operatore sanitario',
+  testName: 'Login and insert new operatore sanitario and delete it after',
   actions: [
     ...login.actions,
     ...click("//fws-sidenav-item[contains(., 'Operatori sanitari')]"),

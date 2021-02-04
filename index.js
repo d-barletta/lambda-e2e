@@ -41,7 +41,10 @@ const lambdaFunction = async (event, context, callback) => {
 
     // TODO - intercept download urls to check files
     // page.on('response', async response => {
-    //   console.log(response.request().resourceType()); //xhr
+    //   const type = response.request().resourceType(); //xhr
+    //   const url = response.url(); // stampaProtocollo?access_token=...
+    //   const status = response.status(); //200
+    //   //todo check
     // });
 
     let lastResult = null;

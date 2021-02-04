@@ -32,3 +32,4 @@ A login example is `example.json` in `tests` folder
 **Info**
 - https://github.com/alixaxel/chrome-aws-lambda
 - https://github.com/puppeteer/puppeteer/blob/main/docs/api.md
+- https://pptr.dev/
