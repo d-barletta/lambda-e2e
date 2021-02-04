@@ -1,5 +1,5 @@
 exports.default = {
-    setDefaultTimeout: 20000,
+    setDefaultTimeout: 30 * 1000,
     setViewport: {
         width: 1280,
         height: 800

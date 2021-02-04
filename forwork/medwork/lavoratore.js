@@ -3,8 +3,7 @@ const login = require('./login').default;
 
 exports.default = {
   ...login,
-  setDefaultTimeout: 200000,
-  testName: 'Login and insert new operatore sanitario',
+  testName: 'Login and insert new lavoratore',
   actions: [
     ...login.actions,
     ...click("//fws-sidenav-item[contains(., 'Lavoratori')]"),
