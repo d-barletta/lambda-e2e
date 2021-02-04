@@ -39,6 +39,11 @@ const lambdaFunction = async (event, context, callback) => {
     await page.setViewport(event.setViewport);
     await page.goto(event.goto);
 
+    // TODO - intercept download urls to check files
+    // page.on('response', async response => {
+    //   console.log(response.request().resourceType()); //xhr
+    // });
+
     let lastResult = null;
     for (const action of event.actions) {
       //console.log(action);

@@ -3,7 +3,7 @@ const login = require('./login').default;
 
 exports.default = {
   ...login,
-  testName: 'Login and insert new protocollo mansione',
+  testName: 'Login and insert new protocollo mansione and delete it after',
   actions: [
     ...login.actions,
     ...click("//fws-sidenav-item[contains(., 'Protocolli')]"),

@@ -3,7 +3,7 @@ const login = require('./login').default;
 
 exports.default = {
   ...login,
-  testName: 'Login and insert new ambulatorio',
+  testName: 'Login and insert new ambulatorio and delete it after',
   actions: [
     ...login.actions,
     ...click("//fws-sidenav-item[contains(., 'Ambulatori')]"),
