@@ -3,7 +3,7 @@ const login = require('./login').default;
 
 exports.default = {
   ...login,
-  testName: 'Login and insert new lavoratore',
+  testName: 'Login and insert new lavoratore and delete it after',
   actions: [
     ...login.actions,
     ...click("//fws-sidenav-item[contains(., 'Lavoratori')]"),
@@ -13,10 +13,6 @@ exports.default = {
     ...type('[name=nome]', 'Davide'),
     ...select('[name=sesso]', 'Maschio'),
     ...type('[name=dataNascita]', '22/08/1986'),
-    //inizio - pork-around
-    ...click('[name=comune]'), //todo - remove
-    ...wait(1), //todo - remove
-    //fine  - pork-around
     ...select('[name=comune]', 'Isernia'),
     ...type('[name=codiceFiscale]', 'BRLDVD86M22E335L'),
     ...select('[name=statoLavorativo]', 'Attivo'),
