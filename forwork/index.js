@@ -6,7 +6,8 @@ const testCases = [
   require('./medwork/azienda').default,
   require('./medwork/lavoratore').default,
   require('./medwork/ambulatorio').default,
-  //require('./medwork/protocolli-mansione').default,
+  // require('./medwork/protocolli-mansione').default, //da finire
+  require('./medwork/protocolli-dimissione').default,
 ];
 
 for (const testCase of testCases) {
