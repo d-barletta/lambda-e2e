@@ -8,9 +8,12 @@ const lambdaFunction = async (event, context, callback) => {
   let browser = null;
 
   try {
+
     if (typeof event === 'string') {
       event = JSON.parse(event);
     }
+
+    result.request = event;
 
     if (!event.setViewport) {
       event.setViewport = {width: 1280, height: 800};
@@ -62,7 +65,9 @@ const lambdaFunction = async (event, context, callback) => {
 
     result.status = 200;
   } catch (error) {
-    return callback(error, result);
+    result.status = 500;
+    result.error = error;
+    return callback(null, result);
   } finally {
     browser && (await browser.close());
   }
