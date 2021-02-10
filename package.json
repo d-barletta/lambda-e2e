@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node local.js",
-    "start-fw": "node forwork/index.js",
     "build-lambda": "zip -9 -r -X deploy/lambdaFunc.zip . -x 'node_modules/puppeteer/*' 'local.js' 'example.json' '.*'"
   },
   "author": "barlettad",
