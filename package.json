@@ -1,7 +1,7 @@
 {
   "name": "lambda-e2e-test",
   "version": "1.0.0",
-  "description": "Selenium Chrome based Lambda function for e2e testing",
+  "description": "Puppeteer Chromium based Lambda function for e2e testing",
   "main": "index.js",
   "scripts": {
     "start": "node local.js",
