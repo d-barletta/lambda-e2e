@@ -8,16 +8,12 @@ const lambdaFunction = async (event, context, callback) => {
   let browser = null;
 
   try {
-
     if (typeof event === 'string') {
       event = JSON.parse(event);
     }
 
     // include request in response but masking sensible data
-    result.request = event;
-    if(result.request && result.request.actions) {
-      result.request.actions = '*** hidden ***'; 
-    }
+    result.request = {...event, action: '*** hidden ***'};
 
     if (!event.setViewport) {
       event.setViewport = {width: 1280, height: 800};
