@@ -8,16 +8,12 @@ const lambdaFunction = async (event, context, callback) => {
   let browser = null;
 
   try {
-    if (typeof event === 'string') {
-      event = JSON.parse(event);
-    }
+    if (typeof event === 'string') event = JSON.parse(event);
 
     // include request in response but masking sensible data
     result.request = {...event, actions: '*** hidden ***'};
 
-    if (!event.setViewport) {
-      event.setViewport = {width: 1280, height: 800};
-    }
+    if (!event.setViewport) event.setViewport = {width: 1280, height: 800};
 
     result.body.testName = event.testName || 'No named Test';
 
@@ -53,6 +49,7 @@ const lambdaFunction = async (event, context, callback) => {
     let lastResult = null;
     for (const action of event.actions) {
       //console.log(action);
+      result.running = action;
       let executeOn = action.executeOnPrevious ? lastResult : page;
       if (action.execute) {
         if (!action.params) action.params = [];
@@ -63,6 +60,7 @@ const lambdaFunction = async (event, context, callback) => {
 
     ////////////////////////////////////////////////////////////// TEST - FINISH
 
+    delete result.running;
     result.status = 200;
   } catch (error) {
     result.status = 500;
