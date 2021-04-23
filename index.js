@@ -53,7 +53,7 @@ const lambdaFunction = async (event, context, callback) => {
       let executeOn = action.executeOnPrevious ? lastResult : page;
       if (action.execute) {
         if (!action.params) action.params = [];
-        lastResult = await executeOn[action.execute](...action.params);
+        result.lastresult = lastResult = await executeOn[action.execute](...action.params);
         //console.log(lastResult);
       }
     }
@@ -61,6 +61,7 @@ const lambdaFunction = async (event, context, callback) => {
     ////////////////////////////////////////////////////////////// TEST - FINISH
 
     delete result.running;
+    delete result.lastresult;
     result.status = 200;
   } catch (error) {
     result.status = 500;
