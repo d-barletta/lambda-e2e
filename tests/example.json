@@ -1,11 +1,11 @@
 {
-    "testName": "Test login for db realm",
+    "testName": "Test login",
     "setDefaultTimeout": 10000,
     "setViewport": {
         "width": 1280,
         "height": 800
     },
-    "goto": "https://db.forwork.com/medwork/",
+    "goto": "https://example.com",
     "actions": [
         {
             "execute": "waitForSelector",
@@ -26,7 +26,7 @@
             "execute": "type",
             "params": [
                 "[name=username]",
-                "username@nsi.it"
+                "username@live.it"
             ]
         },
         {
@@ -67,7 +67,7 @@
             ]
         },
         {
-            "description": "Se è visibile questo elemento significa che la login è riuscita",
+            "description": "If visible, login succeded",
             "execute": "waitForSelector",
             "params": [
                 ".introduction",
