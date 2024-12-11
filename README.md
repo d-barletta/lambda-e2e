@@ -19,7 +19,7 @@
   - `"testName": "Test exampe name"` optional
   - `"setDefaultTimeout": 30000,` optional
   - `"setViewport": { "width": 1280, "height": 800 }` optional 
-  - `"goto": "https://db.forwork.com/medwork/"` *required
+  - `"goto": "https://example.com/"` *required
   - `"actions": [...]` *required
 - `actions` is an array of objects (functions to call) composed of:
   - `"execute": "waitForXPath"` *required - is a function to call on page or previous result
